@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { BookOpen, Eye, EyeOff, Loader2, Mail, Lock, User } from 'lucide-react'
+import { BookOpen, Eye, EyeOff, Loader2, Mail, Lock, User, ArrowLeft } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import toast from 'react-hot-toast'
 
@@ -46,6 +46,14 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-violet-50 to-indigo-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
+        {/* Back Button */}
+        <div className="mb-4">
+          <Link href="/" className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-violet-600 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+        </div>
+
         <div className="bg-white rounded-3xl shadow-xl shadow-violet-100 border border-violet-100 p-8">
           {/* Logo */}
           <div className="flex flex-col items-center mb-8">

@@ -7,17 +7,19 @@ export default function LandingPage() {
       {/* Navbar */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-violet-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-200">
-              <BookOpen className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-base sm:text-lg font-bold text-slate-900">Smart Study Assistant</span>
-          </div>
           <div className="flex items-center gap-2 sm:gap-3">
-            <Link href="/login" className="text-sm font-medium text-slate-600 hover:text-violet-700 transition-colors px-3 sm:px-4 py-2 rounded-xl hover:bg-violet-50">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-violet-200 flex-shrink-0">
+              <BookOpen className="w-4.5 h-4.5 sm:w-5 sm:h-5 text-white" />
+            </div>
+            <span className="text-sm sm:text-lg font-bold text-slate-900 leading-tight whitespace-nowrap">
+              Smart Study<span className="hidden sm:inline"> Assistant</span>
+            </span>
+          </div>
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
+            <Link href="/login" className="text-xs sm:text-sm font-medium text-slate-600 hover:text-violet-700 transition-colors px-2.5 sm:px-4 py-1.5 sm:py-2 rounded-xl hover:bg-violet-50 whitespace-nowrap">
               Sign In
             </Link>
-            <Link href="/signup" className="text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 px-4 sm:px-5 py-2.5 rounded-xl hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5 transition-all duration-200">
+            <Link href="/signup" className="text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl hover:shadow-lg hover:shadow-violet-200 hover:-translate-y-0.5 transition-all duration-200 whitespace-nowrap">
               Get Started
             </Link>
           </div>
@@ -31,7 +33,7 @@ export default function LandingPage() {
             <Sparkles className="w-4 h-4" />
             AI-Powered Study Tool — Free for Every Student
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-5 sm:mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight mb-5 sm:mb-6">
             Study Smarter with<br />
             <span className="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
               AI-Powered Insights
@@ -42,11 +44,11 @@ export default function LandingPage() {
             Chat with your notes and supercharge your learning — completely free.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-4">
-            <Link href="/signup" className="w-full sm:w-auto flex items-center justify-center gap-2 text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 px-8 py-4 rounded-2xl hover:shadow-xl hover:shadow-violet-200 hover:-translate-y-1 transition-all duration-200">
+            <Link href="/signup" className="w-full sm:w-auto flex items-center justify-center gap-2 text-base font-semibold text-white bg-gradient-to-r from-violet-600 to-indigo-600 px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl hover:shadow-xl hover:shadow-violet-200 hover:-translate-y-1 transition-all duration-200">
               Start Studying Free
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/login" className="w-full sm:w-auto text-base font-medium text-slate-700 bg-white px-8 py-4 rounded-2xl border border-slate-200 hover:border-violet-300 hover:shadow-md transition-all duration-200 text-center">
+            <Link href="/login" className="w-full sm:w-auto text-base font-medium text-slate-700 bg-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-2xl border border-slate-200 hover:border-violet-300 hover:shadow-md transition-all duration-200 text-center">
               Sign In
             </Link>
           </div>
@@ -104,8 +106,8 @@ export default function LandingPage() {
       {/* Features */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
         <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Everything You Need to Ace Your Studies</h2>
-          <p className="text-base sm:text-lg text-slate-500">Four powerful AI tools built into one seamless experience</p>
+          <h2 className="text-2xl sm:text-4xl font-bold text-slate-900 mb-4 px-2">Everything You Need to Ace Your Studies</h2>
+          <p className="text-base sm:text-lg text-slate-500 px-4">Four powerful AI tools built into one seamless experience</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
           {[
@@ -127,14 +129,14 @@ export default function LandingPage() {
 
       {/* CTA Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-24">
-        <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-3xl p-8 sm:p-12 text-center text-white shadow-2xl shadow-violet-200">
+        <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-3xl p-6 sm:p-12 text-center text-white shadow-2xl shadow-violet-200">
           <h2 className="text-2xl sm:text-4xl font-extrabold mb-3 sm:mb-4">Start Learning Smarter Today</h2>
           <p className="text-violet-200 text-sm sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto">
             Completely free for every student. No credit card needed. Just sign up and start studying.
           </p>
           <Link
             href="/signup"
-            className="inline-flex items-center gap-2 bg-white text-violet-700 font-bold px-8 py-4 rounded-2xl hover:bg-violet-50 hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-white text-violet-700 font-bold px-6 sm:px-8 py-3 sm:py-4 rounded-2xl hover:bg-violet-50 hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5"
           >
             Get Started Free
             <ArrowRight className="w-5 h-5" />
