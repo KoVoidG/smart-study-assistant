@@ -1,9 +1,11 @@
 # 🎓 Smart Study Assistant
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com)
+🚀 **Live Site**: [https://smart-study-assistant-taupe.vercel.app/](https://smart-study-assistant-taupe.vercel.app/)
+
 [![Next.js Framework](https://img.shields.io/badge/Framework-Next.js%2015-black?style=flat&logo=next.js)](https://nextjs.org/)
 [![Database & Auth](https://img.shields.io/badge/Backend-Supabase-green?style=flat&logo=supabase)](https://supabase.com/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 
 Smart Study Assistant is an intelligent web application designed to help students optimize their learning experience. It allows users to write or upload study notes, automatically classify topics, generate concise summaries, take interactive practice quizzes, simplify complex ideas, and chat directly with their notes.
 
