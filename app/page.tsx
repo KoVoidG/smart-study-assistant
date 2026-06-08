@@ -152,7 +152,7 @@ export default function LandingPage() {
             <span className="font-semibold text-slate-700">Smart Study Assistant</span>
           </div>
           <p className="text-sm text-slate-400 text-center">
-            Free and open for every student. Built with ❤️ to make learning accessible.
+            Free and open for every student to make learning accessible.
           </p>
         </div>
       </footer>

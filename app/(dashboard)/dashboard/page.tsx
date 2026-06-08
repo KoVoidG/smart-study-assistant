@@ -279,7 +279,7 @@ function DashboardContent() {
       {/* Row 1 — Your Notes + AI Result Panel (Equal Widths) */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
         {/* Column 1 — Your Notes */}
-        <div className="flex flex-col h-[500px] lg:h-[600px] space-y-4">
+        <div className="flex flex-col h-auto min-h-[400px] lg:h-[600px] space-y-4">
           <div className="flex-1 min-h-0">
             <NoteInput
               value={noteText}
@@ -327,7 +327,7 @@ function DashboardContent() {
         </div>
 
         {/* Column 2 — AI Result Panel */}
-        <div className="h-[500px] lg:h-[600px] lg:border-l lg:border-[var(--border-subtle)] lg:pl-6 xl:pl-8 flex flex-col">
+        <div className="h-auto min-h-[400px] lg:h-[600px] lg:border-l lg:border-[var(--border-subtle)] lg:pl-6 xl:pl-8 flex flex-col">
           <AIResultPanel
             activeAction={selectedAction}
             loading={loading}

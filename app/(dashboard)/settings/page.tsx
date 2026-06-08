@@ -173,7 +173,7 @@ export default function SettingsPage() {
             <p>Smart Study Assistant v1.0.0</p>
             <p>Built with Next.js, Supabase &amp; OpenAI</p>
             <p className="text-xs mt-3" style={{ color: 'var(--text-faint)' }}>
-              Free and open for every student. © 2025 Smart Study Assistant.
+              Free and open for every student. © 2026 Smart Study Assistant.
             </p>
           </div>
         </div>

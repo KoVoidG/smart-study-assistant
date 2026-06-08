@@ -59,28 +59,26 @@ export default function HistoryPage() {
       .then(d => { setNotes(d.notes || []); setLoading(false) })
   }, [])
 
-  // Group by date
-  const grouped: Record<string, Note[]> = {}
-  notes.forEach(note => {
-    const date = new Date(note.created_at).toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
-    if (!grouped[date]) grouped[date] = []
-    grouped[date].push(note)
-  })
 
   return (
-    <div className="max-w-3xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <div className="mb-6">
         <h1 className="text-2xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>History</h1>
         <p className="text-sm" style={{ color: 'var(--text-faint)' }}>Your past study sessions</p>
       </div>
 
       {loading ? (
-        <div className="space-y-4">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="skeleton h-20 rounded-2xl" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {Array.from({ length: 3 }).map((_, i) => (
+            <div key={i} className="card p-5 space-y-3">
+              <div className="skeleton h-5 w-20 rounded-lg" />
+              <div className="skeleton h-4 rounded" />
+              <div className="skeleton h-4 w-3/4 rounded" />
+              <div className="skeleton h-3 w-20 rounded mt-2" />
+            </div>
           ))}
         </div>
-      ) : Object.keys(grouped).length === 0 ? (
+      ) : notes.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-24 text-center">
           <div className="w-16 h-16 rounded-full flex items-center justify-center mb-4"
             style={{ background: 'rgba(124, 58, 237, 0.08)' }}>
@@ -90,68 +88,54 @@ export default function HistoryPage() {
           <p className="text-sm" style={{ color: 'var(--text-faint)' }}>Your study sessions will appear here</p>
         </div>
       ) : (
-        <div className="space-y-8">
-          {Object.entries(grouped).map(([date, dayNotes]) => (
-            <div key={date}>
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex items-center gap-2">
-                  <Clock className="w-3.5 h-3.5" style={{ color: 'var(--brand)' }} />
-                  <p className="text-xs font-semibold uppercase tracking-wide" style={{ color: 'var(--text-muted)' }}>{date}</p>
-                </div>
-                <div className="flex-1 h-px" style={{ background: 'var(--border-subtle)' }} />
-              </div>
-              <div className="space-y-3">
-                {dayNotes.map(note => (
-                  <div key={note.id} className="card p-4 flex items-start gap-4 hover:-translate-y-0.5 transition-all">
-                    <Link href={`/dashboard?noteId=${note.id}`} className="flex flex-1 items-start gap-4 min-w-0 group/link cursor-pointer">
-                      <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: 'rgba(124, 58, 237, 0.08)' }}>
-                        <FileText className="w-5 h-5" style={{ color: 'var(--brand)' }} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <h3 className="text-sm font-semibold truncate group-hover/link:text-[var(--brand)] transition-colors" style={{ color: 'var(--text-primary)' }}>
-                            {note.title.startsWith('__history__') ? note.title.replace('__history__', '') : note.title}
-                          </h3>
-                          <div className={`px-2 py-0.5 rounded-lg text-xs font-medium flex-shrink-0 ${getSubjectColor(note.subject)}`}>
-                            {note.subject || 'General'}
-                          </div>
-                        </div>
-                        <p className="text-xs line-clamp-2" style={{ color: 'var(--text-faint)' }}>{note.content}</p>
-                      </div>
-                    </Link>
-                    <div className="flex flex-col items-end gap-2 flex-shrink-0 justify-between self-stretch">
-                      <div className="flex items-center gap-2">
-                        <p className="text-xs" style={{ color: 'var(--text-faint)' }}>{formatDate(note.created_at)}</p>
-                        <button
-                          onClick={() => deleteHistoryNote(note.id)}
-                          className="icon-btn !w-6 !h-6 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-lg transition-colors cursor-pointer z-10"
-                          title="Delete note"
-                        >
-                          <Trash2 className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                      {note.title.startsWith('__history__') ? (
-                        <button
-                          onClick={() => saveHistoryNote(note)}
-                          className="px-2.5 py-1 text-xs font-medium rounded-lg hover-shadow-glow flex items-center gap-1 transition-all cursor-pointer z-10"
-                          style={{
-                            background: 'var(--brand)',
-                            color: 'white',
-                          }}
-                        >
-                          <Save className="w-3 h-3" />
-                          Save
-                        </button>
-                      ) : (
-                        <span className="text-[10px] font-semibold flex items-center gap-1 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-1.5 py-0.5 rounded-md select-none">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                          Saved
-                        </span>
-                      )}
-                    </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {notes.map(note => (
+            <div key={note.id} className="card p-5 hover:-translate-y-0.5 relative group flex flex-col justify-between min-h-[220px]">
+              <div>
+                <div className="flex items-start justify-between mb-3">
+                  <div className={`px-2 py-0.5 rounded-lg text-xs font-medium ${getSubjectColor(note.subject)}`}>
+                    {note.subject || 'General'}
                   </div>
-                ))}
+                  <button
+                    id={`del-history-${note.id}`}
+                    onClick={() => deleteHistoryNote(note.id)}
+                    className="icon-btn !w-6 !h-6 z-10 text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20"
+                    title="Delete study session"
+                  >
+                    <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+                <Link href={`/dashboard?noteId=${note.id}`} className="block group/link cursor-pointer">
+                  <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3"
+                    style={{ background: 'rgba(124, 58, 237, 0.08)' }}>
+                    <FileText className="w-4 h-4" style={{ color: 'var(--brand)' }} />
+                  </div>
+                  <h3 className="text-sm font-semibold mb-1.5 line-clamp-2 group-hover/link:text-[var(--brand)] transition-colors" style={{ color: 'var(--text-primary)' }}>
+                    {note.title.startsWith('__history__') ? note.title.replace('__history__', '') : note.title}
+                  </h3>
+                  <p className="text-xs line-clamp-3 mb-3 leading-relaxed" style={{ color: 'var(--text-faint)' }}>{note.content}</p>
+                </Link>
+              </div>
+              <div className="flex items-center justify-between mt-3 pt-2" style={{ borderTop: '1px solid var(--border-subtle)' }}>
+                <p className="text-xs" style={{ color: 'var(--text-faint)' }}>{formatDate(note.created_at)}</p>
+                {note.title.startsWith('__history__') ? (
+                  <button
+                    onClick={() => saveHistoryNote(note)}
+                    className="px-2.5 py-1 text-xs font-medium rounded-lg hover-shadow-glow flex items-center gap-1 transition-all cursor-pointer z-10"
+                    style={{
+                      background: 'var(--brand)',
+                      color: 'white',
+                    }}
+                  >
+                    <Save className="w-3 h-3" />
+                    Save
+                  </button>
+                ) : (
+                  <span className="text-[10px] font-semibold flex items-center gap-1 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/20 px-1.5 py-0.5 rounded-md select-none">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                    Saved
+                  </span>
+                )}
               </div>
             </div>
           ))}
