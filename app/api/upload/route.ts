@@ -1,3 +1,4 @@
+import { CanvasFactory } from 'pdf-parse/worker'
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
 import { PDFParse } from 'pdf-parse'
@@ -29,7 +30,7 @@ export async function POST(req: NextRequest) {
       // Plain text — just decode UTF-8
       text = buffer.toString('utf-8')
     } else if (mimeType === 'application/pdf' || ext === 'pdf') {
-      const parser = new PDFParse({ data: buffer })
+      const parser = new PDFParse({ data: buffer, CanvasFactory: new CanvasFactory() })
       const pdfData = await parser.getText()
       text = pdfData.text
       if (!text.trim()) {

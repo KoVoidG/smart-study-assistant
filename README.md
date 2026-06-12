@@ -1,61 +1,71 @@
 # 🎓 Smart Study Assistant
 
-🚀 **Live Site**: [https://smart-study-assistant-taupe.vercel.app/](https://smart-study-assistant-taupe.vercel.app/)
+🚀 **Live Site**: [smart-study-assistant-taupe.vercel.app](https://smart-study-assistant-taupe.vercel.app/)
 
-[![Next.js Framework](https://img.shields.io/badge/Framework-Next.js%2015-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![Database & Auth](https://img.shields.io/badge/Backend-Supabase-green?style=flat&logo=supabase)](https://supabase.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+<div align="center">
+  <p align="center">
+    <a href="https://smart-study-assistant-taupe.vercel.app/">
+      <img src="public/screenshots/landing.png" alt="Smart Study Assistant Landing Page" width="850" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid #eaeaea;">
+    </a>
+  </p>
 
-
-Smart Study Assistant is an intelligent web application designed to help students optimize their learning experience. It allows users to write or upload study notes, automatically classify topics, generate concise summaries, take interactive practice quizzes, simplify complex ideas, and chat directly with their notes.
-
-Powered by **Next.js (App Router)**, **Supabase** (Auth, Database, and Row-Level Security), and **OpenRouter AI** models.
-
----
-
-## ✨ Features
-
-### 🧠 AI Cognitive Toolkit
-* **Summarization**: Condenses extensive notes into structured markdown summaries and key bullet points.
-* **Interactive Quizzes**: Generates dynamic Multiple Choice and Short Answer practice questions. Answers are checked in real-time with instant validation and comparisons.
-* **Feynman Explanation**: Simplifies complex terms, physics concepts, or mathematical formulas using easy-to-understand analogies.
-* **Contextual Note Chat**: A dedicated sidebar chat interface to query and discuss the contents of study notes.
-* **Automatic Topic Tagging**: Automatically classifies document contents into core academic subjects (*Biology, Physics, Chemistry, Mathematics, Computer Science, History, Literature, Economics, or Other*).
-
-### 📁 Smart Document Management
-* **PDF & Document Parsing**: Extracts text from PDF, TXT, DOC, and DOCX documents with robust binary stream parsing and a 10MB safety boundary.
-* **Saves vs. History Separation**: Restructures documents into static verified files (**My Notes**) and dynamic search sessions (**History**).
-* **Smart Syncing**: Automatically auto-saves generation runs to history while avoiding duplication. The "Save" button updates existing history files instead of cluttering the database.
-
-### 🛡️ Hardened Security
-* **Row-Level Security (RLS)**: Enforces table isolation in PostgreSQL ensuring data is strictly private to the authenticated owner.
-* **Forgot Password Recovery**: Secure PKCE flow utilizing server-side routing handlers to exchange codes for auth sessions and update credentials.
-* **Password-Authenticated Deletion**: Deleting accounts requires password verification and triggers a cascading wipe of all associated files and configurations.
-
-### 🎨 State-of-the-Art UX/UI
-* **Adaptive Dark Mode**: Sleek slate-charcoal interface with glowing violet highlights, powered entirely by CSS variables to prevent Server-Side Rendering (SSR) hydration flashes.
-* **Symmetrical Layout**: Balanced layout matching the heights of the note workspace and the AI Results panel on desktop screens.
-* **Custom Favicon & Branding**: Professional custom BookOpen browser favicon replacing default Next.js templates.
+  [![Next.js Framework](https://img.shields.io/badge/Framework-Next.js%2015-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+  [![Database & Auth](https://img.shields.io/badge/Backend-Supabase-green?style=for-the-badge&logo=supabase)](https://supabase.com/)
+  [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+</div>
 
 ---
 
-## 🛠️ Technology Stack
+### 💡 Transform Your Study Notes into Superpowered Learning Tools
+
+**Smart Study Assistant** is a modern, AI-powered study companion designed to optimize your learning workflow. Instead of studying harder, study smarter by instantly turning your notes, PDFs, or documents into structured study plans, quizzes, and customized explanations.
+
+---
+
+## 🖥️ App Dashboard
+
+Interactive workspace with auto-saves, dynamic generation panels, and a contextual study chat:
+
+<div align="center">
+  <p align="center">
+    <img src="public/screenshots/dashboard.png" alt="Smart Study Assistant Dashboard" width="850" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid #eaeaea;">
+  </p>
+</div>
+
+---
+
+## ✨ Features at a Glance
+
+| Feature | Description |
+| :--- | :--- |
+| **📝 Smart Summaries** | Condense extensive notes or documents into structured markdown summaries and key bullet points. |
+| **❓ Interactive Quizzes** | Generate dynamic Multiple Choice / Short Answer practice questions with real-time feedback and validation. |
+| **💡 Feynman Explainer** | Simplify complex terms, physics equations, or academic concepts using clear, intuitive analogies. |
+| **💬 Contextual Sidebar Chat** | Chat directly with your notes to query, clarify, or expand on any topic within your study material. |
+| **🏷️ Auto-Tagging** | Automatically categorize your files into academic subjects (*Biology, Physics, Chemistry, Math, History, CS, etc.*). |
+| **📁 Document Parser** | Extract text from PDF, TXT, DOC, and DOCX documents with robust binary stream parsing. |
+| **🛡️ Hardened Security** | Keep your data private with Supabase Row-Level Security (RLS) and secure password-verified account deletion. |
+
+---
+
+<details>
+<summary><b>🛠️ Technology Stack & Architecture</b></summary>
 
 * **Frontend**: Next.js 15 (App Router, React 19), Tailwind CSS
 * **Database & Authentication**: Supabase (PostgreSQL, GoTrue, Row Level Security)
 * **AI Cognitive Processing**: OpenRouter API (utilizing free-tier LLM models)
 * **File Processing**: `pdf-parse`
 
----
+</details>
 
-## 🚀 Getting Started
+<details>
+<summary><b>🚀 Local Development Setup</b></summary>
 
 ### 1. Prerequisites
 Ensure you have [Node.js](https://nodejs.org/) installed (v18.x or higher is recommended).
 
 ### 2. Configuration (`.env.local`)
 Create a `.env.local` file in the root of the project with the following configuration:
-
 ```env
 # Supabase Configuration
 NEXT_PUBLIC_SUPABASE_URL=your-supabase-url
@@ -80,28 +90,28 @@ npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
----
+</details>
 
-## 📦 Production Builds
+<details>
+<summary><b>📦 Production Build & Deployment</b></summary>
 
+### Production Builds
 To compile and optimize the application for production deployment, run:
 ```bash
 npm run build
 ```
-
 To preview the built production site locally, run:
 ```bash
 npm run start
 ```
 
----
-
-## ☁️ Deployment
-
+### Deployment
 The application is fully compatible with **Vercel** out of the box:
-
 1. Push the code repository to GitHub, GitLab, or Bitbucket.
 2. Go to the [Vercel Dashboard](https://vercel.com/) and click **Add New Project**.
 3. Import the repository.
 4. Input the environment variables (from `.env.local`) in Vercel's **Environment Variables** configuration.
 5. Click **Deploy**. Vercel will bundle the codebase and host it on HTTPS.
+
+</details>
+
