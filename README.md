@@ -22,13 +22,44 @@
 
 ---
 
-## 🖥️ App Dashboard
+## 🔐 Secure Authentication
 
-Interactive workspace with auto-saves, dynamic generation panels, and a contextual study chat:
+Simple, clean, and secure signup and login pages powered by **Supabase Auth**, featuring live form validation and password visibility toggles:
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%" align="center"><b>🔑 Sign In</b></td>
+      <td width="50%" align="center"><b>📝 Sign Up</b></td>
+    </tr>
+    <tr>
+      <td><img src="public/screenshots/login.png" alt="Login Page" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid #eaeaea;"></td>
+      <td><img src="public/screenshots/signup.png" alt="Signup Page" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid #eaeaea;"></td>
+    </tr>
+  </table>
+</div>
+
+---
+
+## 🖥️ Interactive Dashboard in Action
+
+The workspace is designed for maximum study efficiency, featuring auto-saves, dynamic generation panels, and a contextual study chat.
+
+### 📝 AI Summaries & Study Notes
+Paste text or upload files (PDFs, TXT, DOCX) to instantly generate structured summaries, key bullet points, and simplified explanations.
 
 <div align="center">
   <p align="center">
-    <img src="public/screenshots/dashboard.png" alt="Smart Study Assistant Dashboard" width="850" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid #eaeaea;">
+    <img src="public/screenshots/dashboard_summary.png" alt="AI Summaries & Study Notes" width="850" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid #eaeaea;">
+  </p>
+</div>
+
+### ❓ Interactive Practice Quizzes
+Test your knowledge by generating custom multiple-choice and short-answer quizzes from your materials, featuring real-time grading and feedback.
+
+<div align="center">
+  <p align="center">
+    <img src="public/screenshots/dashboard_quiz.png" alt="Interactive Practice Quizzes" width="850" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); border: 1px solid #eaeaea;">
   </p>
 </div>
 

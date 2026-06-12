@@ -1,3 +1,4 @@
+import * as workerModule from 'pdf-parse/worker'
 import { CanvasFactory } from 'pdf-parse/worker'
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@/lib/supabase/server'
@@ -30,7 +31,16 @@ export async function POST(req: NextRequest) {
       // Plain text — just decode UTF-8
       text = buffer.toString('utf-8')
     } else if (mimeType === 'application/pdf' || ext === 'pdf') {
-      const parser = new PDFParse({ data: buffer, CanvasFactory: new CanvasFactory() })
+      // Resolve CanvasFactory class handling ESM/CJS interop differences
+      const ResolvedCanvasFactory = (workerModule as any).CanvasFactory || 
+                                    (workerModule as any).default?.CanvasFactory || 
+                                    CanvasFactory;
+
+      // Pass the CLASS itself — pdfjs-dist internally does `new CanvasFactory(...)` with its own args
+      const parser = new PDFParse({ 
+        data: buffer, 
+        CanvasFactory: ResolvedCanvasFactory 
+      })
       const pdfData = await parser.getText()
       text = pdfData.text
       if (!text.trim()) {
