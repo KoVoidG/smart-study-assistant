@@ -146,3 +146,8 @@ The application is fully compatible with **Vercel** out of the box:
 
 </details>
 
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
